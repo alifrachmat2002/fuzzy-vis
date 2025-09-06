@@ -86,7 +86,7 @@ export default function MembershipChart({
                     ))}
                     <ReferenceLine
                         x={currentX}
-                        stroke="#8884d8"
+                        stroke="#ff7300"
                         strokeDasharray="4 4"
                     />
                 </LineChart>

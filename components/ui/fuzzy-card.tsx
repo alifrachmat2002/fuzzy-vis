@@ -219,11 +219,22 @@ export default function FuzzyCard({ crispValue, onChange }: PropsType) {
             <CardHeader>
                 <CardTitle>Fuzzy Input</CardTitle>
                 <CardDescription>
-                    Configure the crisp input and visualize memberships.
+                    Follow these steps to define your crisp input, add
+                    membership functions, and see how a crisp value maps to
+                    fuzzy degrees in real time.
                 </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
                 {/* Properties: name, min, max */}
+                <div className="space-y-1">
+                    <div className="font-medium">
+                        1. Define the input domain
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                        Give your variable a name and set its numeric range
+                        using minimum and maximum values.
+                    </p>
+                </div>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <div className="space-y-1">
                         <Label htmlFor={`${state.id}-name`}>Name</Label>
@@ -259,6 +270,16 @@ export default function FuzzyCard({ crispValue, onChange }: PropsType) {
 
                 {/* Slider for crisp value */}
                 <div>
+                    <div className="space-y-1 mb-1">
+                        <div className="font-medium">
+                            2. Set the crisp value
+                        </div>
+                        <p className="text-sm text-muted-foreground">
+                            Drag the slider to choose a specific input value
+                            within the domain. The chart will highlight this
+                            value.
+                        </p>
+                    </div>
                     <div className="flex items-center justify-between">
                         <Label htmlFor={`${state.id}-slider`}>
                             {state.name} value
@@ -280,6 +301,16 @@ export default function FuzzyCard({ crispValue, onChange }: PropsType) {
 
                 {/* Membership function manager */}
                 <div className="space-y-2">
+                    <div className="space-y-1">
+                        <div className="font-medium">
+                            3. Add membership functions
+                        </div>
+                        <p className="text-sm text-muted-foreground">
+                            Pick a function type, add it, then tweak its
+                            parameters and label. You can add multiple sets to
+                            cover the domain.
+                        </p>
+                    </div>
                     <div className="flex items-end gap-2">
                         <div className="flex-1 space-y-1">
                             <Label>Select membership function</Label>
@@ -380,6 +411,13 @@ export default function FuzzyCard({ crispValue, onChange }: PropsType) {
                 </div>
 
                 {/* Chart */}
+                <div className="space-y-1">
+                    <div className="font-medium">4. Visualize memberships</div>
+                    <p className="text-sm text-muted-foreground">
+                        Each line shows a membership function across the domain.
+                        The dashed line marks the current crisp value.
+                    </p>
+                </div>
                 <MembershipChart
                     min={state.min}
                     max={state.max}
